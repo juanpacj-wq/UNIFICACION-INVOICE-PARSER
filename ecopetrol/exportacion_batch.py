@@ -26,11 +26,11 @@ def procesar_multiples_facturas(directorio_entrada, ruta_salida=None, directorio
     Returns:
         str: Ruta del archivo Excel creado
     """
-    import extractores
-    import procesamiento
-    from db_connector import DBConnector
+    from . import extractores
+    from . import procesamiento
+    from .db_connector import DBConnector
     import pandas as pd
-    from exportacion_excel_multiple import ExportadorExcelMultiple
+    from .exportacion_excel_multiple import ExportadorExcelMultiple
     
     # Definir ruta de salida
     if ruta_salida is None:

@@ -7,14 +7,16 @@ para extraer información de las facturas de energía.
 # Patrones regex centralizados para extracción de datos generales
 PATRONES_CONCEPTO = {
     'subtotal_base_energia': [
-        # Nuevos patrones para manejar formato con .0 al final
+        # Patrones originales que ya funcionaban
         r'Subtotal\s+base\s+energÃ­a[,\s]*"([0-9,]+(?:\.\d+)?)"',
         r'Subtotal\tbase\tenergÃ­a[,\s]*"([0-9,]+(?:\.\d+)?)"',
         r'Subtotal\s+base\s+energía[,\s]*"([0-9,]+(?:\.\d+)?)"',
         r'Subtotal\tbase\tenergía[,\s]*"([0-9,]+(?:\.\d+)?)"',
-        # Patrones adicionales para capturar el valor completo
         r'Subtotal\s+base\s+energÃ­a[,\s]*"?([0-9,]+(?:\.\d+)?)"?',
         r'Subtotal\tbase\tenergÃ­a[,\s]*"?([0-9,]+(?:\.\d+)?)"?',
+        # NUEVOS patrones para valores negativos
+        r'Subtotal\s+base\s+energÃ­a[,\s]*"(-[0-9,]+(?:\.\d+)?)"',
+        r'Subtotal\tbase\tenergÃ­a[,\s]*"(-[0-9,]+(?:\.\d+)?)"',
         # Patrones antiguos mantenidos por compatibilidad
         r'Subtotal base energía.*?"([-\d,]+)"',
         r'Subtotal\tbase\tenergía.*?"([-\d,]+)"',
@@ -22,7 +24,7 @@ PATRONES_CONCEPTO = {
         r'Subtotal\tbase\tenergía.*?(?<!")(\d+)(?!")'
     ],
     'contribucion': [
-        # Nuevos patrones mejorados para capturar valores negativos, decimales y grandes
+        # Patrones originales mejorados para capturar valores negativos, decimales y grandes
         r'ContribuciÃ³n[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         r'Contribución[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         r'ContribuciÃ³n[,\s]*"?(-?[0-9,]+(?:\.\d+)?)"?',
@@ -34,6 +36,10 @@ PATRONES_CONCEPTO = {
     'contribucion_otros_meses': [
         r'ContribuciÃ³n\s+de\s+otros\s+meses[,\s]*"?([0-9,]+(?:\.\d+)?)"?',
         r'Contribución\s+de\s+otros\s+meses[,\s]*"?([0-9,]+(?:\.\d+)?)"?',
+        # NUEVO patrón para valores negativos
+        r'ContribuciÃ³n\s+de\s+otros\s+meses[,\s]*"(-[0-9,]+(?:\.\d+)?)"',
+        r'Contribución\s+de\s+otros\s+meses[,\s]*"(-[0-9,]+(?:\.\d+)?)"',
+        # Patrones originales
         r'Contribución de otros meses.*?([-\d,]+)',
         r'Contribución\tde\totros\tmeses.*?([-\d,]+)',
         r'Contribución de otros meses.*?(?<!")(\d+)(?!")',
@@ -44,11 +50,14 @@ PATRONES_CONCEPTO = {
         r'\$\/kWh,\$\s*Subtotal\tenerg[ií]a\t\+\tcontribución,\s*([-\d.,]+)'
     ],
     'subtotal_energia_contribucion_pesos': [
-     # NUEVOS PATRONES CORREGIDOS - Capturar el segundo valor después de la coma
+        # PATRONES CORREGIDOS - Capturar el segundo valor después de la coma
         r'Subtotal\s+energia\s*\+\s*contribuciÃ³n[,\s]*[\d.]+[,\s]*"([0-9,]+(?:\.\d+)?)"',
         r'Subtotal\tenerg[ií]a\t\+\tcontribuciÃ³n[,\s]*[\d.]+[,\s]*"([0-9,]+(?:\.\d+)?)"',
         r'Subtotal\s+energia\s*\+\s*contribución[,\s]*[\d.]+[,\s]*"([0-9,]+(?:\.\d+)?)"',
         r'Subtotal\tenergía\t\+\tcontribución[,\s]*[\d.]+[,\s]*"([0-9,]+(?:\.\d+)?)"',
+        # NUEVO para valores negativos
+        r'Subtotal\s+energia\s*\+\s*contribuciÃ³n[,\s]*-?[\d.]+[,\s]*"(-[0-9,]+(?:\.\d+)?)"',
+        r'Subtotal\tenerg[ií]a\t\+\tcontribuciÃ³n[,\s]*-?[\d.]+[,\s]*"(-[0-9,]+(?:\.\d+)?)"',
         # Patrón más específico para el formato exacto del ejemplo
         r'Subtotal\s+energia\s*\+\s*contribuciÃ³n,[\d.]+,"([0-9,]+(?:\.\d+)?)"',
         r'Subtotal\tenerg[ií]a\t\+\tcontribuciÃ³n,[\d.]+,"([0-9,]+(?:\.\d+)?)"',
@@ -62,7 +71,7 @@ PATRONES_CONCEPTO = {
         r'\$\/kWh,\$\s*Subtotal\tenerg[ií]a\t\+\tcontribución,\s*[-\d.,]+,\s*(?<!")(\d+)(?!")'
     ],
     'otros_cobros': [
-        # Nuevos patrones mejorados para capturar valores negativos, decimales y grandes
+        # Patrones mejorados para capturar valores negativos, decimales y grandes
         r'Otros\s+cobros[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         r'Otros\tcobros[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         # Con comillas opcionales
@@ -75,7 +84,7 @@ PATRONES_CONCEPTO = {
         r'Otros\tcobros.*?(?<!")(\d+)(?!")'
     ],
     'sobretasa': [
-        # Nuevos patrones mejorados para capturar valores negativos, decimales y grandes
+        # Patrones mejorados para capturar valores negativos
         r'Sobretasa[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         # Con comillas opcionales
         r'Sobretasa[,\s]*"?(-?[0-9,]+(?:\.\d+)?)"?',
@@ -100,7 +109,7 @@ PATRONES_CONCEPTO = {
         r'Compensaciones.*?(?<!")(\d+)(?!")'
     ],
     'saldo_cartera': [
-        # Nuevos patrones mejorados para capturar valores negativos, decimales y grandes
+        # Patrones mejorados para capturar valores negativos
         r'Saldo\s+cartera[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         r'Saldo\tcartera[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         # Con comillas opcionales
@@ -113,7 +122,7 @@ PATRONES_CONCEPTO = {
         r'Saldo\tcartera.*?(?<!")(\d+)(?!")'
     ],
     'interes_mora': [
-        # Nuevos patrones mejorados para capturar valores negativos, decimales y grandes
+        # Patrones mejorados para capturar valores negativos
         r'InterÃ©s\s+por\s+Mora[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         r'Interés\s+por\s+Mora[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         r'Interés\tpor\tMora[,\s]*"([-0-9,]+(?:\.\d+)?)"',
@@ -128,7 +137,7 @@ PATRONES_CONCEPTO = {
         r'Interés\tpor\tMora.*?(?<!")(\d+)(?!")'
     ],
     'recobros': [
-        # Nuevos patrones mejorados para capturar valores negativos, decimales y grandes
+        # Patrones mejorados para capturar valores negativos
         r'Recobros[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         # Con comillas opcionales
         r'Recobros[,\s]*"?(-?[0-9,]+(?:\.\d+)?)"?',
@@ -137,13 +146,16 @@ PATRONES_CONCEPTO = {
         r'Recobros.*?(?<!")(\d+)(?!")'
     ],
     'alumbrado_publico': [
-        # Nuevos patrones mejorados para capturar el valor completo con decimales
+        # Patrones mejorados para capturar el valor completo con decimales
         r'Alumbrado\s+pÃºblico\s+\(\*\*\)[,\s]*"([0-9,]+(?:\.\d+)?)"',
         r'Alumbrado\s+público\s+\(\*\*\)[,\s]*"([0-9,]+(?:\.\d+)?)"',
         r'Alumbrado\s+pÃºblico[,\s]*"([0-9,]+(?:\.\d+)?)"',
         r'Alumbrado\s+público[,\s]*"([0-9,]+(?:\.\d+)?)"',
         r'Alumbrado\tpúblico[,\s]*"([0-9,]+(?:\.\d+)?)"',
         r'Alumbrado\tpÃºblico[,\s]*"([0-9,]+(?:\.\d+)?)"',
+        # NUEVO para valores negativos
+        r'Alumbrado\s+pÃºblico\s+\(\*\*\)[,\s]*"(-[0-9,]+(?:\.\d+)?)"',
+        r'Alumbrado\s+público\s+\(\*\*\)[,\s]*"(-[0-9,]+(?:\.\d+)?)"',
         # Patrones con comillas opcionales
         r'Alumbrado\s+pÃºblico\s+\(\*\*\)[,\s]*"?([0-9,]+(?:\.\d+)?)"?',
         r'Alumbrado\s+público[,\s]*"?([0-9,]+(?:\.\d+)?)"?',
@@ -154,7 +166,7 @@ PATRONES_CONCEPTO = {
         r'Alumbrado\tpúblico.*?(?<!")(\d+)(?!")'
     ],
     'impuesto_alumbrado_publico': [
-        # Nuevos patrones mejorados para capturar valores negativos, decimales y grandes
+        # Patrones mejorados para capturar valores negativos
         r'Impuesto\s+alumbrado\s+pÃºblico[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         r'Impuesto\s+alumbrado\s+público[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         r'Impuesto\talumbrado\tpúblico[,\s]*"([-0-9,]+(?:\.\d+)?)"',
@@ -171,7 +183,7 @@ PATRONES_CONCEPTO = {
         r'Impuesto\talumbrado\tpúblico.*?(?<!")(\d+)(?!")'
     ],
     'ajuste_iap_otros_meses': [
-        # Nuevos patrones mejorados para capturar valores negativos, decimales y grandes
+        # Patrones mejorados para capturar valores negativos
         r'Ajuste\s+IAP\s+otros\s+meses[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         r'Ajuste\tIAP\totros\tmeses[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         # Con comillas opcionales
@@ -184,7 +196,7 @@ PATRONES_CONCEPTO = {
         r'Ajuste\tIAP\totros\tmeses.*?(?<!")(\d+)(?!")'
     ],
     'convivencia_ciudadana': [
-        # Nuevos patrones mejorados para capturar valores negativos, decimales y grandes
+        # Patrones mejorados para capturar valores negativos
         r'Convivencia\s+ciudadana\s+\(\*\*\*\)[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         r'Convivencia\s+ciudadana[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         r'Convivencia\tciudadana[,\s]*"([-0-9,]+(?:\.\d+)?)"',
@@ -199,7 +211,7 @@ PATRONES_CONCEPTO = {
         r'Convivencia\tciudadana.*?(?<!")(\d+)(?!")'
     ],
     'tasa_especial_convivencia': [
-        # Nuevos patrones mejorados para capturar valores negativos, decimales y grandes
+        # Patrones mejorados para capturar valores negativos
         r'Tasa\s+especial\s+convivencia\s+ciudadana[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         r'Tasa\tespecial\tconvivencia\tciudadana[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         # Con comillas opcionales
@@ -212,7 +224,7 @@ PATRONES_CONCEPTO = {
         r'Tasa\tespecial\tconvivencia\tciudadana.*?(?<!")(\d+)(?!")'
     ],
     'ajuste_tasa_convivencia': [
-        # Nuevos patrones mejorados para capturar valores negativos, decimales y grandes
+        # Patrones mejorados para capturar valores negativos
         r'Ajuste\s+tasa\s+convivencia\s+otros\s+meses[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         r'Ajuste\ttasa\tconvivencia\totros\tmeses[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         # Con comillas opcionales
@@ -225,7 +237,12 @@ PATRONES_CONCEPTO = {
         r'Ajuste\ttasa\tconvivencia\totros\tmeses.*?(?<!")(\d+)(?!")'
     ],
     'total_servicio_energia_impuestos': [
-        # Nuevos patrones mejorados
+        # NUEVOS patrones para valores negativos
+        r'Total\s+servicio\s+energÃ­a\s+\+\s+impuestos[,\s]*"(-?[0-9,]+(?:\.\d+)?)"',
+        r'Total\s+servicio\s+energía\s+\+\s+impuestos[,\s]*"(-?[0-9,]+(?:\.\d+)?)"',
+        r'Total\tservicio\tenergía\t\+\timpuestos[,\s]*"(-?[0-9,]+(?:\.\d+)?)"',
+        r'Total\tservicio\tenergÃ­a\t\+\timpuestos[,\s]*"(-?[0-9,]+(?:\.\d+)?)"',
+        # Patrones originales mejorados
         r'Total\s+servicio\s+energÃ­a\s+\+\s+impuestos[,\s]*"([0-9,]+(?:\.\d+)?)"',
         r'Total\s+servicio\s+energía\s+\+\s+impuestos[,\s]*"([0-9,]+(?:\.\d+)?)"',
         r'Total\tservicio\tenergía\t\+\timpuestos[,\s]*"([0-9,]+(?:\.\d+)?)"',
@@ -242,7 +259,7 @@ PATRONES_CONCEPTO = {
         r'Total\tservicio\tenergía\t\\\+\timpuestos.*?(?<!")(\d+)(?!")'
     ],
     'ajuste_decena': [
-        # Nuevos patrones mejorados para capturar valores negativos, decimales y grandes
+        # Patrones mejorados para capturar valores negativos
         r'Ajuste\s+a\s+la\s+decena[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         r'Ajuste\ta\tla\tdecena[,\s]*"([-0-9,]+(?:\.\d+)?)"',
         # Con comillas opcionales
@@ -255,7 +272,10 @@ PATRONES_CONCEPTO = {
         r'Ajuste\ta\tla\tdecena.*?(?<!")(\d+)(?!")'
     ],
     'neto_pagar': [
-        # Nuevos patrones mejorados
+        # NUEVOS patrones para valores negativos
+        r'Neto\s+a\s+pagar[,\s]*"(-?[0-9,]+(?:\.\d+)?)"',
+        r'Neto\ta\tpagar[,\s]*"(-?[0-9,]+(?:\.\d+)?)"',
+        # Patrones originales mejorados
         r'Neto\s+a\s+pagar[,\s]*"([0-9,]+(?:\.\d+)?)"',
         r'Neto\ta\tpagar[,\s]*"([0-9,]+(?:\.\d+)?)"',
         # Con comillas opcionales

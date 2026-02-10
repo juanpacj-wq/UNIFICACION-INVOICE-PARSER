@@ -1,0 +1,6 @@
+venv/
+dist/
+build/
+datos_output/
+__pycache__/
+.env

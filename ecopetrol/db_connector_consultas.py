@@ -6,7 +6,7 @@ Contiene funciones para conectarse a la base de datos y ejecutar consultas espec
 import logging
 import pandas as pd
 import psycopg2
-from db_connector_utils import format_query_params, log_query_results
+from .db_connector_utils import format_query_params, log_query_results
 
 # Configurar logger
 logger = logging.getLogger(__name__)

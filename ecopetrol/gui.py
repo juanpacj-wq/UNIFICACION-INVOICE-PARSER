@@ -7,7 +7,7 @@ import base64
 import sys
 import calendar
 from datetime import datetime, date
-from main import procesar_factura, procesar_directorio
+from .main import procesar_factura, procesar_directorio
 import tkcalendar 
 
 def resource_path(relative_path):
