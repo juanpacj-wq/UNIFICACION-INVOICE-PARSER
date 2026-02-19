@@ -64,7 +64,7 @@ class ExportadorExcel:
                     'Errores': ["; ".join(errores)] if errores else ["Ninguno"]
                 })
             else:
-                # Caso masivo (lista de logs)
+                # Caso masivo 
                 df_validacion = pd.DataFrame(validacion_data)
 
             # 2. Orden Columnas - HOJA CONCEPTOS
@@ -94,10 +94,10 @@ class ExportadorExcel:
                 otras = [c for c in df_generales.columns if c not in cols_existentes]
                 df_generales = df_generales[cols_existentes + otras]
 
-            # 4. Orden Columnas - HOJA COMPARACIÓN (Con Llaves Nuevas)
+            # 4. Orden Columnas - HOJA COMPARACIÓN 
             cols_comparacion_orden = [
-                'No. Factura',      # <--- Llave Primaria
-                'No. Contrato',     # <--- Llave Secundaria
+                'No. Factura',      
+                'No. Contrato',     
                 'Tipo', 
                 'Variable', 
                 'Valor PDF', 
