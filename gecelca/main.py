@@ -131,7 +131,7 @@ def procesar_directorio_consolidado(directorio_entrada, directorio_salida=None):
         exportador = exportacion.ExportadorExcel(datos_consolidados, ruta_excel)
         exportador.exportar()
         
-        logger.info(f"¡Éxito! Archivo maestro guardado en: {ruta_excel}")
+        logger.info(f"Archivo maestro guardado en: {ruta_excel}")
     else:
         logger.error("No se pudo procesar ningún archivo correctamente.")
 
@@ -140,7 +140,7 @@ def procesar_directorio_consolidado(directorio_entrada, directorio_salida=None):
 
 def procesar_individual(ruta_pdf, directorio_salida=None):
     """
-    Procesa un solo archivo (wrapper para mantener compatibilidad con -a).
+    Procesa un solo archivo.
     """
     if not directorio_salida:
         directorio_salida = os.path.dirname(os.path.abspath(ruta_pdf))

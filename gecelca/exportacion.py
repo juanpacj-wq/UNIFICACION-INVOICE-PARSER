@@ -47,15 +47,12 @@ class ExportadorExcel:
         Ejecuta la exportación a Excel.
         """
         try:
-            # 1. Preparar DataFrames
             df_conceptos = pd.DataFrame(self.datos.get('conceptos', []))
             df_generales = pd.DataFrame(self.datos.get('generales', []))
             df_comparacion = pd.DataFrame(self.datos.get('comparacion', []))
             
-            # Validación puede ser una lista (si es consolidado) o dict (si es individual)
             validacion_data = self.datos.get('validacion', [])
             if isinstance(validacion_data, dict):
-                # Caso individual (legacy)
                 errores = validacion_data.get('errores', [])
                 df_validacion = pd.DataFrame({
                     'Fecha Proceso': [pd.Timestamp.now()],
@@ -64,10 +61,8 @@ class ExportadorExcel:
                     'Errores': ["; ".join(errores)] if errores else ["Ninguno"]
                 })
             else:
-                # Caso masivo 
                 df_validacion = pd.DataFrame(validacion_data)
 
-            # 2. Orden Columnas - HOJA CONCEPTOS
             cols_conceptos_orden = [
                 'No. Factura', 'No. Contrato', 'Item ID', 'Referencia', 
                 'Concepto', 'Unidad', 'Cantidad', 'Tarifa', 'Valor Total Item'
@@ -78,7 +73,6 @@ class ExportadorExcel:
                 otras = [c for c in df_conceptos.columns if c not in cols_existentes]
                 df_conceptos = df_conceptos[cols_existentes + otras]
 
-            # 3. Orden Columnas - HOJA GENERALES
             cols_generales_orden = [
                 'Nombre Archivo', 'No. Factura', 'CUFE', 'No. Contrato',
                 'Fecha Expedición', 'Fecha Vencimiento', 'Periodo Facturación',
@@ -94,7 +88,6 @@ class ExportadorExcel:
                 otras = [c for c in df_generales.columns if c not in cols_existentes]
                 df_generales = df_generales[cols_existentes + otras]
 
-            # 4. Orden Columnas - HOJA COMPARACIÓN 
             cols_comparacion_orden = [
                 'No. Factura',      
                 'No. Contrato',     
@@ -104,11 +97,9 @@ class ExportadorExcel:
                 'Valor Data Lake'
             ]
             if not df_comparacion.empty:
-                # Asegurar orden y columnas existentes
                 cols_existentes = [c for c in cols_comparacion_orden if c in df_comparacion.columns]
                 df_comparacion = df_comparacion[cols_existentes]
 
-            # 5. Escribir a Excel
             with pd.ExcelWriter(self.ruta_salida, engine='openpyxl') as writer:
                 df_conceptos.to_excel(writer, sheet_name='Conceptos_Vertical', index=False)
                 df_generales.to_excel(writer, sheet_name='Variables_Generales', index=False)

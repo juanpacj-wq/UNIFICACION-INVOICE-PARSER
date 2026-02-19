@@ -51,7 +51,7 @@ def arreglar_archivo(ruta_archivo):
         lineas_modificadas.append(nueva_linea)
 
     if cambios:
-        print(f"🔧 Reparando imports en: {ruta_archivo}")
+        print(f"Reparando imports en: {ruta_archivo}")
         with open(ruta_archivo, 'w', encoding='utf-8') as f:
             f.writelines(lineas_modificadas)
 
@@ -62,10 +62,10 @@ def procesar_carpetas():
     for carpeta in carpetas_proyecto:
         ruta_carpeta = os.path.join(base_dir, carpeta)
         if not os.path.exists(ruta_carpeta):
-            print(f"⚠️ Alerta: No encuentro la carpeta '{carpeta}'")
+            print(f"Alerta: No encuentro la carpeta '{carpeta}'")
             continue
             
-        print(f"📂 Escaneando: {carpeta}")
+        print(f"Escaneando: {carpeta}")
         for root, dirs, files in os.walk(ruta_carpeta):
             for file in files:
                 if file.endswith('.py') and file != '__init__.py':
@@ -73,4 +73,4 @@ def procesar_carpetas():
 
 if __name__ == '__main__':
     procesar_carpetas()
-    print("\n✅ ¡Listo! Imports corregidos. Ahora intenta ejecutar gui.py")
+    print("\nImports corregidos.")

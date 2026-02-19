@@ -1,6 +1,5 @@
 """
 Módulo principal para la exportación de datos procesados de facturas.
-Este módulo reexporta las clases y funciones de los módulos especializados.
 """
 
 # Importar clases y funciones de los módulos especializados

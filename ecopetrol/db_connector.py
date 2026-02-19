@@ -1,6 +1,5 @@
 """
 Módulo principal para la conexión con la base de datos corporativa.
-Este módulo reexporta las clases y funciones de los módulos especializados.
 """
 
 # Importar clases y funciones de los módulos especializados
