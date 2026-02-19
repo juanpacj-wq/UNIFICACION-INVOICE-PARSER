@@ -15,15 +15,13 @@ def resource_path(relative_path):
     Obtiene la ruta absoluta del recurso, funciona para desarrollo y para PyInstaller.
     """
     try:
-        # PyInstaller crea un directorio temporal y almacena la ruta en _MEIPASS
         base_path = sys._MEIPASS
     except Exception:
         base_path = os.path.abspath(".")
     return os.path.join(base_path, relative_path)
 
-# Configuración de CustomTkinter
-ctk.set_appearance_mode("dark")  # Modos: "dark", "light", "system"
-ctk.set_default_color_theme("blue")  # Temas: "blue", "green", "dark-blue"
+ctk.set_appearance_mode("dark") 
+ctk.set_default_color_theme("blue")  
 
 class FacturaProcessorGUI(ctk.CTk):
     def __init__(self):
@@ -32,36 +30,29 @@ class FacturaProcessorGUI(ctk.CTk):
         self.title("Procesador de Facturas")
         self.geometry("510x635")
         
-        # Variables para almacenar las selecciones del usuario
         self.has_selection = False
         self.selected_path = ""
         self.output_path = ""
-        self.export_excel = True  # Siempre True
-        self.selected_date = None  # Variable para la fecha seleccionada
-        self.is_processing = False  # Variable para controlar el spinner
-        self.spinner_after_id = None  # Para controlar el timer del spinner
+        self.export_excel = True  
+        self.selected_date = None 
+        self.is_processing = False 
+        self.spinner_after_id = None  
         
-        # Inicializar status_var (solo para uso interno)
         self.status_var = ctk.StringVar()
         
-        # Crear el contenedor principal
         self.grid_columnconfigure(0, weight=1)
         self.grid_rowconfigure(0, weight=1)
         
-        # Frame principal
         self.main_frame = ctk.CTkFrame(self)
         self.main_frame.grid(row=0, column=0, padx=15, pady=15, sticky="nsew")
         self.main_frame.grid_columnconfigure(0, weight=1)
         
-        # Título con logo
         self.title_frame = ctk.CTkFrame(self.main_frame, fg_color="transparent")
         self.title_frame.grid(row=0, column=0, padx=15, pady=(15, 20), sticky="ew")
         self.title_frame.grid_columnconfigure(1, weight=1)
         
-        # Cargar y mostrar el logo personalizado
         self.load_and_display_logo()
         
-        # Título
         self.title_label = ctk.CTkLabel(
             self.title_frame, 
             text="Procesador de Facturas",
@@ -123,14 +114,12 @@ class FacturaProcessorGUI(ctk.CTk):
             justify="left"
         )
         self.path_label.grid(row=1, column=0, padx=15, pady=(0, 10), sticky="w")
-        # Contenedor de los dos frames (calendar + opciones)
         self.row_frame = ctk.CTkFrame(self.main_frame) 
         self.row_frame.grid(row=3, column=0, padx=5, pady=(0, 15), sticky="ew")
         self.row_frame.grid_columnconfigure(0, weight=1)
         self.row_frame.grid_columnconfigure(1, weight=1)
         self.row_frame.grid_rowconfigure(0, weight=1)
 
-        # --------- Frame de Fecha de consulta (calendar_frame) ---------
         self.calendar_frame = ctk.CTkFrame(self.row_frame)
         self.calendar_frame.grid(row=0, column=0, padx=5, pady=(10, 15), sticky="nsew")
         self.calendar_frame.grid_columnconfigure(0, weight=1)
@@ -166,7 +155,6 @@ class FacturaProcessorGUI(ctk.CTk):
         )
         self.date_label.grid(row=2, column=0, padx=15, pady=(0, 10), sticky="ew")
 
-        # --------- Frame de Opciones (options_frame) ---------
         self.options_frame = ctk.CTkFrame(self.row_frame)
         self.options_frame.grid(row=0, column=1, padx=5, pady=(10, 15), sticky="nsew")
         self.options_frame.grid_columnconfigure(0, weight=1)
@@ -179,7 +167,6 @@ class FacturaProcessorGUI(ctk.CTk):
         )
         self.options_label.grid(row=0, column=0, padx=5, pady=(10, 3), sticky="ew")
 
-        # Sub-frame para botón y texto de carpeta de salida
         self.output_frame = ctk.CTkFrame(self.options_frame, fg_color="transparent")
         self.output_frame.grid(row=1, column=0, padx=5, pady=(0, 10), sticky="ew")
         self.output_frame.grid_columnconfigure(0, weight=1)

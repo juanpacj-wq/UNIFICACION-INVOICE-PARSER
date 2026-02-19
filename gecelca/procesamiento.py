@@ -24,11 +24,9 @@ class FacturaProcessor:
         """
         Validaciones de integridad de los datos.
         """
-        # 1. Validar campos mínimos
         if 'numero_factura' not in self.datos_generales:
             self.errores.append("No se encontró el Número de Factura")
 
-        # 2. Validar coherencia matemática
         if self.items:
             suma_items = sum(item.get('total', 0) for item in self.items)
             total_leido = limpiar_moneda(self.datos_generales.get('total_facturado', 0))
@@ -47,11 +45,9 @@ class FacturaProcessor:
         self.validar_datos()
         dg = self.datos_generales
         
-        # Variables clave
         num_factura = dg.get('numero_factura', '')
         contrato = dg.get('contrato', '')
         
-        # --- 1. DATASET VERTICAL (CONCEPTOS) ---
         filas_conceptos = []
         if self.items:
             for item in self.items:
@@ -74,7 +70,6 @@ class FacturaProcessor:
                 'Unidad': '-', 'Cantidad': 0, 'Tarifa': 0, 'Valor Total Item': 0
             })
 
-        # --- 2. DATASET HORIZONTAL (VARIABLES GENERALES) ---
         fila_general = {
             'Nombre Archivo': dg.get('nombre_archivo', ''),
             'No. Factura': num_factura,
@@ -107,11 +102,8 @@ class FacturaProcessor:
             'Errores': "; ".join(self.errores) if self.errores else ""
         }
 
-        # --- 3. DATASET COMPARACIÓN (LISTA MAESTRA VERTICAL) ---
-        # Ahora incluye No. Factura y No. Contrato en cada fila para poder consolidar múltiples PDFs
         filas_comparacion = []
         
-        # A. Agregar Variables Generales
         campos_a_comparar = [
             'CUFE', 'Fecha Expedición', 'Fecha Vencimiento',
             'Periodo Facturación', 'Cliente', 'NIT Cliente', 'Total Facturado (Subtotal)',
@@ -120,29 +112,26 @@ class FacturaProcessor:
         
         for key in campos_a_comparar:
             filas_comparacion.append({
-                'No. Factura': num_factura, # <--- LLAVE AGREGADA
-                'No. Contrato': contrato,   # <--- LLAVE AGREGADA
+                'No. Factura': num_factura, 
+                'No. Contrato': contrato, 
                 'Tipo': 'General',
                 'Variable': key,
                 'Valor PDF': fila_general.get(key, ''),
                 'Valor Data Lake': '' 
             })
             
-        # B. Agregar Conceptos (Items)
         if self.items:
             for idx, item in enumerate(self.items, 1):
                 prefijo = f"Item {idx}"
                 
-                # Concepto
                 filas_comparacion.append({
-                    'No. Factura': num_factura, # <--- LLAVE AGREGADA
-                    'No. Contrato': contrato,   # <--- LLAVE AGREGADA
+                    'No. Factura': num_factura, 
+                    'No. Contrato': contrato,  
                     'Tipo': 'Detalle',
                     'Variable': f"{prefijo} - Concepto",
                     'Valor PDF': item.get('concepto', ''),
                     'Valor Data Lake': ''
                 })
-                # Cantidad
                 filas_comparacion.append({
                     'No. Factura': num_factura,
                     'No. Contrato': contrato,
@@ -151,7 +140,6 @@ class FacturaProcessor:
                     'Valor PDF': item.get('cantidad', 0),
                     'Valor Data Lake': ''
                 })
-                # Tarifa
                 filas_comparacion.append({
                     'No. Factura': num_factura,
                     'No. Contrato': contrato,
@@ -160,7 +148,6 @@ class FacturaProcessor:
                     'Valor PDF': item.get('tarifa', 0),
                     'Valor Data Lake': ''
                 })
-                # Total
                 filas_comparacion.append({
                     'No. Factura': num_factura,
                     'No. Contrato': contrato,
@@ -177,6 +164,6 @@ class FacturaProcessor:
             'validacion': {
                 'es_valida': len(self.errores) == 0,
                 'errores': self.errores,
-                'factura': num_factura # Para el log
+                'factura': num_factura
             }
         }

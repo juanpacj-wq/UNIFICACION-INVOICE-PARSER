@@ -1,10 +1,8 @@
 import os
 import re
 
-# Carpetas a procesar
 carpetas_proyecto = ['ecopetrol', 'gecelca']
 
-# Módulos que son parte de tu proyecto (para no ponerle punto a 'os', 'sys', etc.)
 modulos_conocidos = [
     'extractores', 'extractores_pdf', 'extractores_patrones', 
     'extractores_componentes', 'procesamiento', 'exportacion', 
@@ -30,28 +28,19 @@ def arreglar_archivo(ruta_archivo):
         indent = obtener_indentacion(linea)
         nueva_linea = linea
 
-        # Caso 1: "from modulo import X" -> "from .modulo import X"
         if contenido.startswith('from '):
             partes = contenido.split()
             if len(partes) >= 2:
                 modulo = partes[1]
-                # Si es un módulo nuestro y NO tiene punto al inicio
                 if modulo in modulos_conocidos and not modulo.startswith('.'):
                     nueva_linea = linea.replace(f'from {modulo}', f'from .{modulo}', 1)
                     cambios = True
         
-        # Caso 2: "import modulo" -> "from . import modulo"
-        # Esto es delicado, solo lo hacemos si la línea es EXACTAMENTE "import modulo"
-        # o "import modulo as m"
         elif contenido.startswith('import '):
             partes = contenido.split()
-            modulo_raiz = partes[1].split('.')[0] # por si es import modulo.submodulo
-            
+            modulo_raiz = partes[1].split('.')[0] 
             if modulo_raiz in modulos_conocidos:
-                # Verificamos que no sea un import múltiple tipo "import os, sys"
                 if ',' not in contenido:
-                    # Construimos la nueva línea respetando la indentación
-                    # Si tiene 'as', lo mantenemos
                     if ' as ' in contenido:
                         alias = contenido.split(' as ')[1]
                         nueva_linea = f"{indent}from . import {modulo_raiz} as {alias}\n"

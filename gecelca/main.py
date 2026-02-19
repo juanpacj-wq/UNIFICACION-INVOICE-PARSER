@@ -38,18 +38,12 @@ def procesar_pdf_a_datos(ruta_pdf):
         nombre_base = utils.obtener_nombre_archivo_sin_extension(ruta_pdf)
         logger.info(f"--- Leyendo: {nombre_base} ---")
 
-        # 1. Reconstrucción Visual (PDF -> CSV interno)
-        # extractores_pdf.convertir_pdf_a_csv(ruta_pdf) # Descomentar si se quiere depurar el CSV
-        
-        # 2. Extracción de Datos Crudos
         datos_crudos = extractores.extraer_datos_factura(ruta_pdf)
         
-        # Inyectar nombre de archivo
         if 'datos_generales' not in datos_crudos:
             datos_crudos['datos_generales'] = {}
         datos_crudos['datos_generales']['nombre_archivo'] = f"{nombre_base}.pdf"
         
-        # 3. Procesamiento y Estructuración
         processor = procesamiento.FacturaProcessor(datos_crudos)
         datos_finales = processor.obtener_datos_procesados()
         
@@ -82,7 +76,6 @@ def procesar_directorio_consolidado(directorio_entrada, directorio_salida=None):
     logger.info(f"Iniciando consolidación de {total} archivos...")
     start_time = time.time()
     
-    # --- ACUMULADORES (Listas Maestras) ---
     acumulado_conceptos = []
     acumulado_generales = []
     acumulado_comparacion = []
@@ -98,12 +91,10 @@ def procesar_directorio_consolidado(directorio_entrada, directorio_salida=None):
         datos = procesar_pdf_a_datos(ruta_completa)
         
         if datos:
-            # Append a las listas maestras
             acumulado_conceptos.extend(datos['conceptos'])
             acumulado_generales.extend(datos['generales'])
             acumulado_comparacion.extend(datos['comparacion'])
             
-            # Log de validación
             val = datos['validacion']
             log_entry = {
                 'Fecha Proceso': time.strftime("%Y-%m-%d %H:%M:%S"),
@@ -124,7 +115,6 @@ def procesar_directorio_consolidado(directorio_entrada, directorio_salida=None):
                 'Errores': "Fallo en lectura del archivo"
             })
 
-    # --- EXPORTACIÓN FINAL ---
     if exitosos > 0:
         logger.info("Generando Excel Consolidado...")
         
@@ -132,7 +122,7 @@ def procesar_directorio_consolidado(directorio_entrada, directorio_salida=None):
             'conceptos': acumulado_conceptos,
             'generales': acumulado_generales,
             'comparacion': acumulado_comparacion,
-            'validacion': acumulado_validacion # Pasamos la lista acumulada
+            'validacion': acumulado_validacion 
         }
         
         nombre_consolidado = f"Consolidado_Gecelca_{time.strftime('%Y%m%d_%H%M%S')}.xlsx"

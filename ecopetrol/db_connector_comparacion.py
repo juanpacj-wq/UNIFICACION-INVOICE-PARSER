@@ -9,7 +9,6 @@ from datetime import datetime, date
 import pandas as pd
 from .db_connector_consultas import connect_to_database, get_factura_data_from_db
 
-# Configurar logger
 logger = logging.getLogger(__name__)
 
 def compare_with_facturas(connection_params, facturas_procesadas, fecha_inicio=None, fecha_fin=None):
@@ -25,17 +24,14 @@ def compare_with_facturas(connection_params, facturas_procesadas, fecha_inicio=N
     Returns:
         pandas.DataFrame: DataFrame con la comparación de facturas
     """
-    # Obtener fronteras de las facturas procesadas
     fronteras = []
     periodos_facturacion = []
     
-    # Extraer información detallada para depuración
     for factura in facturas_procesadas:
         codigo_sic = factura['datos_generales'].get('codigo_sic', '')
         if codigo_sic and codigo_sic != "No encontrado":
             fronteras.append(codigo_sic)
             
-            # Extraer período de facturación
             periodo = factura['datos_generales'].get('periodo_facturacion', 'No encontrado')
             periodos_facturacion.append((codigo_sic, periodo))
     
@@ -46,30 +42,24 @@ def compare_with_facturas(connection_params, facturas_procesadas, fecha_inicio=N
     logger.info(f"Se encontraron {len(fronteras)} fronteras para comparar: {fronteras}")
     logger.info(f"Períodos de facturación: {periodos_facturacion}")
     
-    # Si no se proporcionan fechas, extraerlas de las facturas
     if not fecha_inicio or not fecha_fin:
         fecha_inicio, fecha_fin = extract_date_range_from_facturas(facturas_procesadas)
     
-    # Obtener datos de la base de datos
     db_data = get_factura_data_from_db(connection_params, fecha_inicio, fecha_fin, fronteras)
     
     if db_data is None or db_data.empty:
         logger.warning("No se obtuvieron datos de la base de datos para comparar")
         return _create_empty_comparison_dataframe(facturas_procesadas)
     
-    # Crear DataFrame para almacenar las comparaciones
     comparaciones = []
     
-    # Mapeo de nombres de variables para comparar
     mapeo_variables = _get_variables_mapping()
     
-    # Para cada factura procesada, buscar correspondencia en la base de datos
     for factura in facturas_procesadas:
         codigo_sic = factura['datos_generales'].get('codigo_sic', "")
         if codigo_sic == "No encontrado" or not codigo_sic:
             continue
             
-        # Buscar la frontera en los datos de la base de datos
         factura_db = db_data[db_data['frt'] == codigo_sic]
         
         if factura_db.empty:
@@ -77,18 +67,14 @@ def compare_with_facturas(connection_params, facturas_procesadas, fecha_inicio=N
             _add_empty_comparison_rows(comparaciones, factura, codigo_sic, mapeo_variables)
             continue
             
-        # Si hay múltiples registros para la misma frontera, usar el más reciente
         if len(factura_db) > 1:
             logger.info(f"Se encontraron {len(factura_db)} registros para la frontera {codigo_sic}. Usando el primero.")
             factura_db = factura_db.iloc[[0]]
         
-        # Comparar todas las variables generales
         _compare_general_variables(comparaciones, factura, codigo_sic, factura_db, mapeo_variables)
         
-        # Comparar componentes de energía
         _compare_energy_components(comparaciones, factura, codigo_sic, factura_db)
     
-    # Crear DataFrame con las comparaciones
     return pd.DataFrame(comparaciones)
 
 def extract_date_range_from_facturas(facturas_procesadas):
@@ -102,47 +88,39 @@ def extract_date_range_from_facturas(facturas_procesadas):
     Returns:
         tuple: (fecha_inicio, fecha_fin) en formato 'YYYY-MM-DD'
     """
-    # Buscar períodos de facturación
     periodos_facturacion = []
     
     for factura in facturas_procesadas:
         datos_generales = factura.get('datos_generales', {})
         
-        # Extraer período de facturación
         periodo_facturacion = datos_generales.get('periodo_facturacion')
         if periodo_facturacion and periodo_facturacion != "No encontrado":
             logger.info(f"Encontrado período de facturación: {periodo_facturacion}")
-            # El período puede tener formato "YYYY-MM-DD a YYYY-MM-DD" o solo "YYYY-MM-DD"
             if ' a ' in periodo_facturacion:
                 inicio, fin = periodo_facturacion.split(' a ')
                 periodos_facturacion.append((inicio, fin))
             else:
-                # Si solo hay una fecha, asumir que es el inicio del período
                 periodos_facturacion.append((periodo_facturacion, ""))
     
     if not periodos_facturacion:
         logger.warning("No se encontraron períodos de facturación. Usando fechas predeterminadas.")
-        # Usar el mes actual como predeterminado
+        
         hoy = date.today()
         primer_dia = date(hoy.year, hoy.month, 1)
         ultimo_dia = date(hoy.year, hoy.month, calendar.monthrange(hoy.year, hoy.month)[1])
         return primer_dia.strftime('%Y-%m-%d'), ultimo_dia.strftime('%Y-%m-%d')
     
-    # Procesar los períodos encontrados
     fechas_inicio = []
     fechas_fin = []
     
     for inicio, fin in periodos_facturacion:
         try:
-            # Convertir fecha de inicio
             fecha_inicio = datetime.strptime(inicio, '%Y-%m-%d').date()
             fechas_inicio.append(fecha_inicio)
             
-            # Procesar fecha de fin
             if fin:
                 fecha_fin = datetime.strptime(fin, '%Y-%m-%d').date()
             else:
-                # Si no hay fecha fin, calcular el último día del mes de la fecha de inicio
                 ultimo_dia = calendar.monthrange(fecha_inicio.year, fecha_inicio.month)[1]
                 fecha_fin = date(fecha_inicio.year, fecha_inicio.month, ultimo_dia)
             
@@ -155,20 +133,16 @@ def extract_date_range_from_facturas(facturas_procesadas):
     
     if not fechas_inicio or not fechas_fin:
         logger.warning("No se pudieron procesar las fechas. Usando fechas predeterminadas.")
-        # Usar el mes actual como predeterminado
         hoy = date.today()
         primer_dia = date(hoy.year, hoy.month, 1)
         ultimo_dia = date(hoy.year, hoy.month, calendar.monthrange(hoy.year, hoy.month)[1])
         return primer_dia.strftime('%Y-%m-%d'), ultimo_dia.strftime('%Y-%m-%d')
     
-    # Obtener el rango completo (la fecha más temprana de inicio y la más tardía de fin)
     fecha_inicio_min = min(fechas_inicio)
     fecha_fin_max = max(fechas_fin)
     
-    # Asegurar que la fecha de inicio sea el primer día del mes
     fecha_inicio_ajustada = date(fecha_inicio_min.year, fecha_inicio_min.month, 1)
     
-    # Asegurar que la fecha de fin sea el último día del mes
     ultimo_dia = calendar.monthrange(fecha_fin_max.year, fecha_fin_max.month)[1]
     fecha_fin_ajustada = date(fecha_fin_max.year, fecha_fin_max.month, ultimo_dia)
     
@@ -224,7 +198,6 @@ def _create_empty_comparison_dataframe(facturas_procesadas):
     """
     comparaciones = []
     
-    # Lista de campos a comparar
     campos_a_comparar = [
         'periodo_facturacion', 'factor_m', 'codigo_sic', 'subtotal_base_energia', 
         'contribucion', 'contribucion_otros_meses',
@@ -242,7 +215,6 @@ def _create_empty_comparison_dataframe(facturas_procesadas):
         if codigo_sic == "No encontrado" or not codigo_sic:
             continue
             
-        # Agregar datos generales con valor nulo para DB
         for campo in campos_a_comparar:
             var_factura = factura['datos_generales'].get(campo.lower(), 0)
             comparaciones.append({
@@ -255,7 +227,6 @@ def _create_empty_comparison_dataframe(facturas_procesadas):
                 'Estado': 'No encontrado en DB'
             })
         
-        # Agregar componentes con valor nulo para DB
         for componente in factura['componentes']:
             concepto = componente.get('concepto', '')
             valor_factura = componente.get('total', 0)
@@ -269,7 +240,6 @@ def _create_empty_comparison_dataframe(facturas_procesadas):
                 'Estado': 'No encontrado en DB'
             })
             
-            # Agregar campos detallados de componentes
             for campo in ['kwh_kvarh', 'precio_kwh', 'mes_corriente', 'mes_anteriores']:
                 concepto_detallado = f"{concepto}_{campo}"
                 valor_factura = componente.get(campo, 0)
@@ -297,7 +267,6 @@ def _add_empty_comparison_rows(comparaciones, factura, codigo_sic, mapeo_variabl
         codigo_sic (str): Código SIC de la factura
         mapeo_variables (dict): Mapeo de nombres de variables
     """
-    # Agregar datos generales con valor nulo para DB
     for var_factura in mapeo_variables.keys():
         valor_factura = factura['datos_generales'].get(var_factura, 0)
         comparaciones.append({
@@ -310,7 +279,6 @@ def _add_empty_comparison_rows(comparaciones, factura, codigo_sic, mapeo_variabl
             'Estado': 'No encontrado en DB'
         })
     
-    # Agregar componentes con valor nulo para DB
     for componente in factura['componentes']:
         concepto = componente.get('concepto', '')
         valor_factura = componente.get('total', 0)
@@ -324,7 +292,6 @@ def _add_empty_comparison_rows(comparaciones, factura, codigo_sic, mapeo_variabl
             'Estado': 'No encontrado en DB'
         })
         
-        # Agregar campos detallados de componentes
         for campo in ['kwh_kvarh', 'precio_kwh', 'mes_corriente', 'mes_anteriores']:
             concepto_detallado = f"{concepto}_{campo}"
             valor_factura = componente.get(campo, 0)
@@ -354,7 +321,6 @@ def _compare_general_variables(comparaciones, factura, codigo_sic, factura_db, m
     for var_factura, var_db in mapeo_variables.items():
         valor_factura = factura['datos_generales'].get(var_factura, 0)
         
-        # Convertir a float para evitar problemas de tipo
         if not isinstance(valor_factura, (int, float)):
             try:
                 valor_factura = float(valor_factura)
@@ -363,45 +329,36 @@ def _compare_general_variables(comparaciones, factura, codigo_sic, factura_db, m
         
         valor_db = factura_db[var_db.lower()].values[0] if var_db.lower() in factura_db.columns else 0
         
-        # Asegurar que el valor de la BD sea numérico
         if not isinstance(valor_db, (int, float)):
             try:
                 valor_db = float(valor_db)
             except (ValueError, TypeError):
                 valor_db = 0
         
-        # Caso especial para las variables específicas de energía reactiva
         if var_factura in ['energia_reactiva_inductiva', 'energia_reactiva_capacitiva', 'total_energia_reactiva']:
-            # Calcular diferencia como una simple resta
+           
             diferencia = abs(valor_factura - valor_db)
             
-            # Verificar si la diferencia es mayor que 0.5
             if diferencia > 0.5:
                 estado = 'Alerta'
             else:
                 estado = 'OK'
         else:
-            # Cálculo original de diferencia para el resto de variables
             if valor_db == 0:
                 if valor_factura == 0:
-                    # Ambos valores son 0, por lo que no hay diferencia
                     diferencia = 0
                     estado = 'OK'
                 else:
-                    # valor_db es 0 pero valor_factura no, diferencia es 100% o más
-                    diferencia = 100  # O podrías usar float('inf') para representar infinito
+                    diferencia = 100  
                     estado = 'Alerta'
             else:
-                # Cálculo normal de la diferencia porcentual
                 diferencia = abs(valor_factura - valor_db) / abs(valor_db) * 100
                 
-                # Verificar si la diferencia porcentual es mayor o igual al 1%
                 if diferencia >= 1:
                     estado = 'Alerta'
                 else:
                     estado = 'OK'
         
-        # Agregar a la lista de comparaciones
         comparaciones.append({
             'ID_Factura': factura.get('id', ''),
             'Frontera': codigo_sic,
@@ -422,7 +379,6 @@ def _compare_energy_components(comparaciones, factura, codigo_sic, factura_db):
         codigo_sic (str): Código SIC de la factura
         factura_db (pandas.DataFrame): Datos de la base de datos
     """
-    # Mapeo detallado para componentes y sus campos
     componentes_map = _get_components_mapping()
     
     for componente in factura['componentes']:
@@ -431,7 +387,6 @@ def _compare_energy_components(comparaciones, factura, codigo_sic, factura_db):
             var_db_total = componentes_map[concepto]['total']
             valor_factura = componente.get('total', 0)
             
-            # Convertir a float para evitar problemas de tipo
             if not isinstance(valor_factura, (int, float)):
                 try:
                     valor_factura = float(valor_factura)
@@ -440,23 +395,19 @@ def _compare_energy_components(comparaciones, factura, codigo_sic, factura_db):
             
             valor_db = factura_db[var_db_total.lower()].values[0] if var_db_total.lower() in factura_db.columns else 0
             
-            # Asegurar que el valor de la BD sea numérico
             if not isinstance(valor_db, (int, float)):
                 try:
                     valor_db = float(valor_db)
                 except (ValueError, TypeError):
                     valor_db = 0
             
-            # Calcular diferencia
             diferencia = float(valor_factura) - float(valor_db)
             
-            # Definir estado basado en la diferencia
-            if abs(diferencia) <= 1:  # Tolerancia de 1 para redondeos
+            if abs(diferencia) <= 1: 
                 estado = 'OK'
             else:
                 estado = 'Alerta'
             
-            # Agregar a la lista de comparaciones
             comparaciones.append({
                 'ID_Factura': factura.get('id', ''),
                 'Frontera': codigo_sic,
@@ -467,17 +418,14 @@ def _compare_energy_components(comparaciones, factura, codigo_sic, factura_db):
                 'Estado': estado
             })
             
-            # Comparar campos detallados del componente
             for campo, var_db_campo in componentes_map[concepto].items():
                 if campo != 'total' and var_db_campo is not None:
                     concepto_detallado = f"{concepto}_{campo}"
                     valor_factura = componente.get(campo, 0)
                     
-                    # Manejar valores N/A
                     if valor_factura == "N/A":
                         valor_factura = 0
                         
-                    # Convertir a float para evitar problemas de tipo
                     if not isinstance(valor_factura, (int, float)):
                         try:
                             valor_factura = float(valor_factura)
@@ -486,23 +434,20 @@ def _compare_energy_components(comparaciones, factura, codigo_sic, factura_db):
                     
                     valor_db = factura_db[var_db_campo.lower()].values[0] if var_db_campo.lower() in factura_db.columns else 0
                     
-                    # Asegurar que el valor de la BD sea numérico
                     if not isinstance(valor_db, (int, float)):
                         try:
                             valor_db = float(valor_db)
                         except (ValueError, TypeError):
                             valor_db = 0
                     
-                    # Calcular diferencia
                     diferencia = float(valor_factura) - float(valor_db)
                     
-                    # Definir estado basado en la diferencia
-                    if abs(diferencia) <= 1:  # Tolerancia de 1 para redondeos
+                    if abs(diferencia) <= 1:  
                         estado = 'OK'
                     else:
                         estado = 'Alerta'
                     
-                    # Agregar a la lista de comparaciones
+                
                     comparaciones.append({
                         'ID_Factura': factura.get('id', ''),
                         'Frontera': codigo_sic,

@@ -12,7 +12,6 @@ import argparse
 import logging
 from datetime import datetime
 import calendar
-from datetime import datetime
 # Importar módulos propios
 from . import extractores
 from . import procesamiento

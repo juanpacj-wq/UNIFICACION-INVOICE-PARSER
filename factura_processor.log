@@ -930,3 +930,325 @@
 2026-02-11 10:28:06,872 - gecelca.main - INFO - Generando Excel Consolidado...
 2026-02-11 10:28:07,038 - gecelca.main - INFO - ¡Éxito! Archivo maestro guardado en: C:/Users/jcespedes/Documents/Code/desarrollo/RV_ Facturas AS Diciembre 2025\Resultados_Consolidados\Consolidado_Gecelca_20260211_102806.xlsx
 2026-02-11 10:28:07,039 - gecelca.main - INFO - Resumen: 12 procesados, 0 fallidos. Tiempo: 3.66s
+2026-02-19 11:52:32,639 - gecelca.main - INFO - Iniciando consolidación de 12 archivos...
+2026-02-19 11:52:32,639 - gecelca.main - INFO - --- Leyendo: 10828 PROENERGY VENE-007-21 ---
+2026-02-19 11:52:32,795 - gecelca.main - INFO - --- Leyendo: 10829 NITRO ENERGY VENE-004-22 ---
+2026-02-19 11:52:32,951 - gecelca.main - INFO - --- Leyendo: 10830 GENERARCO VENE-012-22 ---
+2026-02-19 11:52:33,107 - gecelca.main - INFO - --- Leyendo: 10831 CARIBEMAR VENE-001-20 ---
+2026-02-19 11:52:33,268 - gecelca.main - INFO - --- Leyendo: 10833 GENERARCO VENE-004-23 ---
+2026-02-19 11:52:33,438 - gecelca.main - INFO - --- Leyendo: 10839 ELEFI VENE-011-22 ---
+2026-02-19 11:52:33,620 - gecelca.main - INFO - --- Leyendo: 10841 AIR-E VENE-002-25 ---
+2026-02-19 11:52:33,848 - gecelca.main - INFO - --- Leyendo: 10842 NITRO VENE-007-22 ---
+2026-02-19 11:52:34,042 - gecelca.main - INFO - --- Leyendo: 10843 AIR-E VENE-001-25 ---
+2026-02-19 11:52:34,234 - gecelca.main - INFO - --- Leyendo: 10844 GENERARCO VENE-005-22 ---
+2026-02-19 11:52:34,424 - gecelca.main - INFO - --- Leyendo: 10845 GENERSYS VENE-006-20 ---
+2026-02-19 11:52:34,625 - gecelca.main - INFO - --- Leyendo: 10846 AIR-E VENE-002-21 ---
+2026-02-19 11:52:34,809 - gecelca.main - INFO - Generando Excel Consolidado...
+2026-02-19 11:52:34,938 - gecelca.main - INFO - ¡Éxito! Archivo maestro guardado en: C:/Users/jcespedes/Documents/Code/desarrollo/RV_ Facturas AS Diciembre 2025\Resultados_Consolidados\Consolidado_Gecelca_20260219_115234.xlsx
+2026-02-19 11:52:34,938 - gecelca.main - INFO - Resumen: 12 procesados, 0 fallidos. Tiempo: 2.30s
+2026-02-19 11:52:47,603 - ecopetrol.utils - INFO - Directorio creado: C:/Users/jcespedes/Documents/Code/desarrollo/Prefacturas septiembre tx0\resultados
+2026-02-19 11:52:47,606 - ecopetrol.utils - INFO - Directorio creado: C:/Users/jcespedes/Documents/Code/desarrollo/Prefacturas septiembre tx0\resultados\csv
+2026-02-19 11:52:47,608 - ecopetrol.main - INFO - Se encontraron 72 archivos PDF para procesar
+2026-02-19 11:52:47,608 - ecopetrol.main - INFO - Iniciando procesamiento consolidado de facturas
+2026-02-19 11:53:47,725 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt18951
+2026-02-19 11:53:47,725 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,733 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt08513
+2026-02-19 11:53:47,733 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,733 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: CFP11002
+2026-02-19 11:53:47,733 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,733 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt07999
+2026-02-19 11:53:47,733 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,733 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt76524
+2026-02-19 11:53:47,733 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,733 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt72653
+2026-02-19 11:53:47,733 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,733 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt02228
+2026-02-19 11:53:47,736 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,736 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt02918
+2026-02-19 11:53:47,736 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,736 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt33506
+2026-02-19 11:53:47,736 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,736 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt56504
+2026-02-19 11:53:47,736 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,736 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt14461
+2026-02-19 11:53:47,736 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,736 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: CFP05038
+2026-02-19 11:53:47,738 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,738 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt05857
+2026-02-19 11:53:47,738 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,738 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt11545
+2026-02-19 11:53:47,738 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,738 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt04803
+2026-02-19 11:53:47,738 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,741 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt18613
+2026-02-19 11:53:47,742 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,743 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt10098
+2026-02-19 11:53:47,743 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,744 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt05004
+2026-02-19 11:53:47,744 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,744 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt03821
+2026-02-19 11:53:47,745 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,745 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt03281
+2026-02-19 11:53:47,745 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,746 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt01505
+2026-02-19 11:53:47,746 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,746 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt10407
+2026-02-19 11:53:47,746 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,746 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt10408
+2026-02-19 11:53:47,747 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,747 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt04682
+2026-02-19 11:53:47,747 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,747 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt04683
+2026-02-19 11:53:47,747 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,747 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt07854
+2026-02-19 11:53:47,748 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,748 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt28759
+2026-02-19 11:53:47,749 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,750 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt65599
+2026-02-19 11:53:47,750 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,750 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt00698
+2026-02-19 11:53:47,750 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,751 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt10931
+2026-02-19 11:53:47,751 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,751 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt00697
+2026-02-19 11:53:47,752 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,752 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt11417
+2026-02-19 11:53:47,752 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,752 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt03216
+2026-02-19 11:53:47,752 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,753 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt01251
+2026-02-19 11:53:47,753 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,753 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt10978
+2026-02-19 11:53:47,753 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,753 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt24980
+2026-02-19 11:53:47,754 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,754 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt04445
+2026-02-19 11:53:47,754 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,754 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt07008
+2026-02-19 11:53:47,754 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,754 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt00970
+2026-02-19 11:53:47,755 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,755 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt05713
+2026-02-19 11:53:47,755 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,755 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt04201
+2026-02-19 11:53:47,755 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,757 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt10187
+2026-02-19 11:53:47,760 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,762 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt05697
+2026-02-19 11:53:47,763 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,763 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt11029
+2026-02-19 11:53:47,763 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,765 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt11030
+2026-02-19 11:53:47,765 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,765 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt00931
+2026-02-19 11:53:47,765 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,766 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: CFP24041
+2026-02-19 11:53:47,766 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,766 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt43161
+2026-02-19 11:53:47,766 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,767 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt26867
+2026-02-19 11:53:47,767 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,767 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt29202
+2026-02-19 11:53:47,767 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,768 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt51795
+2026-02-19 11:53:47,768 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,768 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt21285
+2026-02-19 11:53:47,769 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,769 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt00696
+2026-02-19 11:53:47,769 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,770 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt06573
+2026-02-19 11:53:47,770 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,770 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt54174
+2026-02-19 11:53:47,770 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,771 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt25832
+2026-02-19 11:53:47,771 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,771 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt27767
+2026-02-19 11:53:47,772 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,772 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt27768
+2026-02-19 11:53:47,772 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,772 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt05349
+2026-02-19 11:53:47,773 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,778 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: CFP05348
+2026-02-19 11:53:47,778 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,780 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt29199
+2026-02-19 11:53:47,780 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,780 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt05144
+2026-02-19 11:53:47,780 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,782 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt04759
+2026-02-19 11:53:47,782 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,782 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt04760
+2026-02-19 11:53:47,782 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,782 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt04761
+2026-02-19 11:53:47,782 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,782 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt00699
+2026-02-19 11:53:47,782 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,782 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt06510
+2026-02-19 11:53:47,782 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,784 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt04999
+2026-02-19 11:53:47,784 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,784 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt26501
+2026-02-19 11:53:47,784 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,787 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt02973
+2026-02-19 11:53:47,787 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,787 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt00622
+2026-02-19 11:53:47,787 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,787 - ecopetrol.exportacion_batch - INFO - Procesada factura con código SIC: Frt26493
+2026-02-19 11:53:47,787 - ecopetrol.exportacion_batch - INFO - Período de facturación: 2025-09-01
+2026-02-19 11:53:47,787 - ecopetrol.db_connector_comparacion - INFO - Se encontraron 72 fronteras para comparar: ['Frt18951', 'Frt08513', 'CFP11002', 'Frt07999', 'Frt76524', 'Frt72653', 'Frt02228', 'Frt02918', 'Frt33506', 'Frt56504', 'Frt14461', 'CFP05038', 'Frt05857', 'Frt11545', 'Frt04803', 'Frt18613', 'Frt10098', 'Frt05004', 'Frt03821', 'Frt03281', 'Frt01505', 'Frt10407', 'Frt10408', 'Frt04682', 'Frt04683', 'Frt07854', 'Frt28759', 'Frt65599', 'Frt00698', 'Frt10931', 'Frt00697', 'Frt11417', 'Frt03216', 'Frt01251', 'Frt10978', 'Frt24980', 'Frt04445', 'Frt07008', 'Frt00970', 'Frt05713', 'Frt04201', 'Frt10187', 'Frt05697', 'Frt11029', 'Frt11030', 'Frt00931', 'CFP24041', 'Frt43161', 'Frt26867', 'Frt29202', 'Frt51795', 'Frt21285', 'Frt00696', 'Frt06573', 'Frt54174', 'Frt25832', 'Frt27767', 'Frt27768', 'Frt05349', 'CFP05348', 'Frt29199', 'Frt05144', 'Frt04759', 'Frt04760', 'Frt04761', 'Frt00699', 'Frt06510', 'Frt04999', 'Frt26501', 'Frt02973', 'Frt00622', 'Frt26493']
+2026-02-19 11:53:47,789 - ecopetrol.db_connector_comparacion - INFO - Períodos de facturación: [('Frt18951', '2025-09-01'), ('Frt08513', '2025-09-01'), ('CFP11002', '2025-09-01'), ('Frt07999', '2025-09-01'), ('Frt76524', '2025-09-01'), ('Frt72653', '2025-09-01'), ('Frt02228', '2025-09-01'), ('Frt02918', '2025-09-01'), ('Frt33506', '2025-09-01'), ('Frt56504', '2025-09-01'), ('Frt14461', '2025-09-01'), ('CFP05038', '2025-09-01'), ('Frt05857', '2025-09-01'), ('Frt11545', '2025-09-01'), ('Frt04803', '2025-09-01'), ('Frt18613', '2025-09-01'), ('Frt10098', '2025-09-01'), ('Frt05004', '2025-09-01'), ('Frt03821', '2025-09-01'), ('Frt03281', '2025-09-01'), ('Frt01505', '2025-09-01'), ('Frt10407', '2025-09-01'), ('Frt10408', '2025-09-01'), ('Frt04682', '2025-09-01'), ('Frt04683', '2025-09-01'), ('Frt07854', '2025-09-01'), ('Frt28759', '2025-09-01'), ('Frt65599', '2025-09-01'), ('Frt00698', '2025-09-01'), ('Frt10931', '2025-09-01'), ('Frt00697', '2025-09-01'), ('Frt11417', '2025-09-01'), ('Frt03216', '2025-09-01'), ('Frt01251', '2025-09-01'), ('Frt10978', '2025-09-01'), ('Frt24980', '2025-09-01'), ('Frt04445', '2025-09-01'), ('Frt07008', '2025-09-01'), ('Frt00970', '2025-09-01'), ('Frt05713', '2025-09-01'), ('Frt04201', '2025-09-01'), ('Frt10187', '2025-09-01'), ('Frt05697', '2025-09-01'), ('Frt11029', '2025-09-01'), ('Frt11030', '2025-09-01'), ('Frt00931', '2025-09-01'), ('CFP24041', '2025-09-01'), ('Frt43161', '2025-09-01'), ('Frt26867', '2025-09-01'), ('Frt29202', '2025-09-01'), ('Frt51795', '2025-09-01'), ('Frt21285', '2025-09-01'), ('Frt00696', '2025-09-01'), ('Frt06573', '2025-09-01'), ('Frt54174', '2025-09-01'), ('Frt25832', '2025-09-01'), ('Frt27767', '2025-09-01'), ('Frt27768', '2025-09-01'), ('Frt05349', '2025-09-01'), ('CFP05348', '2025-09-01'), ('Frt29199', '2025-09-01'), ('Frt05144', '2025-09-01'), ('Frt04759', '2025-09-01'), ('Frt04760', '2025-09-01'), ('Frt04761', '2025-09-01'), ('Frt00699', '2025-09-01'), ('Frt06510', '2025-09-01'), ('Frt04999', '2025-09-01'), ('Frt26501', '2025-09-01'), ('Frt02973', '2025-09-01'), ('Frt00622', '2025-09-01'), ('Frt26493', '2025-09-01')]
+2026-02-19 11:53:47,793 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,797 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,797 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,797 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,799 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,799 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,800 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,800 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,800 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,800 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,800 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,801 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,801 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,803 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,803 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,803 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,805 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,805 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,805 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,805 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,805 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,809 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,811 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,813 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,813 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,813 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,813 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,813 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,813 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,815 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,815 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,815 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,815 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,815 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,815 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,816 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,816 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,816 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,816 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,816 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,816 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,816 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,816 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,818 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,818 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,818 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,819 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,819 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,820 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,820 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,820 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,820 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,820 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,820 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,820 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,822 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,822 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,824 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,832 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,832 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,832 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,832 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,832 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,835 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,835 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,835 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,835 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,837 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,837 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,837 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,837 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,837 - ecopetrol.db_connector_comparacion - INFO - Encontrado período de facturación: 2025-09-01
+2026-02-19 11:53:47,837 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,837 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,837 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,839 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,845 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,847 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,847 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,847 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,849 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,849 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,849 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,849 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,849 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,849 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,849 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,849 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,849 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,853 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,853 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,853 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,853 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,853 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,853 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,853 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,855 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,855 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,855 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,855 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,855 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,855 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,855 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,855 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,859 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,861 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,863 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,863 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,863 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,863 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,863 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,863 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,863 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,866 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,866 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,866 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,866 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,866 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,868 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,868 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,868 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,868 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,869 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,869 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,869 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,869 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,869 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,870 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,870 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,870 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,870 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,871 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,871 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,871 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,871 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,871 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,871 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,871 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,871 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,871 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,874 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,875 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,878 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,880 - ecopetrol.db_connector_comparacion - INFO - Período procesado: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,882 - ecopetrol.db_connector_comparacion - INFO - Rango de fechas final: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,882 - ecopetrol.db_connector_consultas - INFO - Consultando facturas con fechas: 2025-09-01 a 2025-09-30
+2026-02-19 11:53:47,883 - ecopetrol.db_connector_consultas - INFO - Filtrando por fronteras: Frt18951, Frt08513, CFP11002, Frt07999, Frt76524, Frt72653, Frt02228, Frt02918, Frt33506, Frt56504, Frt14461, CFP05038, Frt05857, Frt11545, Frt04803, Frt18613, Frt10098, Frt05004, Frt03821, Frt03281, Frt01505, Frt10407, Frt10408, Frt04682, Frt04683, Frt07854, Frt28759, Frt65599, Frt00698, Frt10931, Frt00697, Frt11417, Frt03216, Frt01251, Frt10978, Frt24980, Frt04445, Frt07008, Frt00970, Frt05713, Frt04201, Frt10187, Frt05697, Frt11029, Frt11030, Frt00931, CFP24041, Frt43161, Frt26867, Frt29202, Frt51795, Frt21285, Frt00696, Frt06573, Frt54174, Frt25832, Frt27767, Frt27768, Frt05349, CFP05348, Frt29199, Frt05144, Frt04759, Frt04760, Frt04761, Frt00699, Frt06510, Frt04999, Frt26501, Frt02973, Frt00622, Frt26493
+2026-02-19 11:53:48,774 - ecopetrol.db_connector_consultas - INFO - Conexión a la base de datos establecida
+2026-02-19 11:53:48,775 - ecopetrol.db_connector_utils - INFO - Ejecutando consulta: SELECT frontera as frt, factura_dian as factura, v_consumo_energia_ajustado as subtotal_energía_total, v_contribucion + v_consumo_energia_ajustado + v_contribucion_otros_meses as subtotal_energía_cont...
+2026-02-19 11:53:48,777 - ecopetrol.db_connector_utils - INFO - Con parámetros: ['2025-09-01', '2025-09-30', 'Frt18951', 'Frt08513', 'CFP11002'] y 69 más
+2026-02-19 11:53:50,543 - ecopetrol.db_connector_consultas - INFO - Consulta ejecutada. Resultados: 72
+2026-02-19 11:53:50,549 - ecopetrol.db_connector_utils - INFO - Se obtuvieron 72 registros de la base de datos
+2026-02-19 11:53:50,554 - ecopetrol.db_connector_utils - INFO - Fronteras encontradas en la base de datos: ['Frt33506', 'Frt26501', 'CFP05038', 'Frt00696', 'CFP24041', 'Frt00622', 'Frt00931', 'Frt00697', 'Frt00698', 'Frt00699', 'Frt00970', 'Frt01505', 'Frt02228', 'Frt02973', 'Frt03216', 'Frt03281', 'Frt03821', 'Frt04201', 'Frt04445', 'Frt04682', 'Frt04683', 'Frt04759', 'Frt04999', 'Frt04760', 'Frt04761', 'Frt04803', 'Frt05004', 'Frt05713', 'Frt05144', 'Frt05697', 'Frt05857', 'Frt06510', 'Frt06573', 'Frt07008', 'Frt07854', 'Frt07999', 'Frt08513', 'Frt10098', 'Frt56504', 'Frt10407', 'Frt10408', 'Frt10931', 'Frt10978', 'Frt11029', 'Frt11030', 'Frt11417', 'Frt11545', 'Frt18613', 'Frt18951', 'Frt21285', 'Frt24980', 'Frt25832', 'Frt26493', 'Frt26867', 'Frt28759', 'Frt29199', 'Frt27768', 'Frt29202', 'Frt43161', 'Frt51795', 'Frt10187', 'Frt54174', 'Frt14461', 'Frt65599', 'Frt02918', 'Frt76524', 'Frt01251', 'CFP11002', 'CFP05348', 'Frt05349', 'Frt27767', 'Frt72653']
+2026-02-19 11:53:51,613 - ecopetrol.exportacion_batch - INFO - Se agregó hoja de comparación con 4320 registros
+2026-02-19 11:53:52,525 - ecopetrol.exportacion_batch - INFO - Archivo Excel consolidado creado: C:/Users/jcespedes/Documents/Code/desarrollo/Prefacturas septiembre tx0\resultados\facturas_analizadas.xlsx
+2026-02-19 11:53:52,526 - ecopetrol.main - INFO - Se ha creado el archivo Excel consolidado: C:/Users/jcespedes/Documents/Code/desarrollo/Prefacturas septiembre tx0\resultados\facturas_analizadas.xlsx

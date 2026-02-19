@@ -41,7 +41,6 @@ def parsear_linea_item(linea):
         return None
 
     try:
-        # --- PASO 1: ENCONTRAR INICIO ---
         idx_inicio_real = -1
         for i in range(min(len(palabras), 6)):
             token = palabras[i]
@@ -67,7 +66,6 @@ def parsear_linea_item(linea):
             'unidad': '', 'cantidad': 0, 'tarifa': 0, 'total': 0
         }
 
-        # --- PASO 2: DESARMAR DESDE EL FINAL ---
         idx_cursor = len(palabras_validas) - 1
         encontrado_total = False
         
@@ -102,7 +100,6 @@ def parsear_linea_item(linea):
                 item['unidad'] = token
                 idx_cursor -= 1
 
-        # --- PASO 3: ANALIZAR EL INICIO ---
         idx_inicio = 0
         if idx_inicio <= idx_cursor:
             token = palabras_validas[idx_inicio]
@@ -116,7 +113,6 @@ def parsear_linea_item(linea):
                 item['referencia'] = token
                 idx_inicio += 1
 
-        # --- PASO 4: CONCEPTO ---
         if idx_inicio <= idx_cursor:
             concepto_parts = palabras_validas[idx_inicio : idx_cursor + 1]
             item['concepto'] = " ".join(concepto_parts).strip()
@@ -142,35 +138,27 @@ def extraer_datos_factura(ruta_pdf):
     
     datos = {'datos_generales': {}, 'items': []}
     
-    # --- CONFIGURACIÓN DE LÓGICA DE CLIENTE ---
-    # Campos que son ESPECÍFICOS del cliente y se repiten para el emisor.
     KEYS_CLIENTE = [
         'nit_cliente', 'direccion_cliente', 'ciudad', 
         'telefono_cliente', 'email_cliente', 'cliente_nombre'
     ]
     
-    # Palabras clave que indican que hemos llegado a la sección del cliente
     MARCADORES_CLIENTE = ['señores', 'datos del cliente', 'cliente:', 'adquirente']
     
     seccion_cliente_activa = False
 
-    # --- RECORRIDO DE LÍNEAS PARA DATOS GENERALES ---
     for linea in todas_lineas:
         linea_lower = linea.lower()
         
-        # 1. DETECTAR SI ENTRAMOS A LA SECCIÓN DEL CLIENTE
-        # Si la línea contiene "Señores" o "Datos del cliente", activamos la bandera.
         if not seccion_cliente_activa:
             if any(m in linea_lower for m in MARCADORES_CLIENTE):
                 seccion_cliente_activa = True
         
-        # 2. HEADER (Patrones de Cabecera)
+        # 2. HEADER 
         for key, patron in PATRONES_ENCABEZADO.items():
-            # SI el campo es del cliente y NO estamos en la sección cliente -> SALTAR (Ignora NIT emisor)
             if key in KEYS_CLIENTE and not seccion_cliente_activa:
                 continue
                 
-            # Si ya tenemos el dato, no lo sobrescribimos (opcional, pero seguro si confiamos en la sección)
             if key not in datos['datos_generales']:
                 match = patron.search(linea)
                 if match:
@@ -197,7 +185,6 @@ def extraer_datos_factura(ruta_pdf):
                     val = match.group(1).strip()
                     datos['datos_generales'][key] = val
 
-    # --- EXTRACCIÓN DE TABLA DE ÍTEMS ---
     en_tabla = False
     for linea in todas_lineas:
         if not en_tabla:
